@@ -1,0 +1,19 @@
+{
+  "name": "claude-code-update-log-skills",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude Codeのアップデートを追跡しDiscordに通知するskills集",
+  "scripts": {
+    "setup": "bash scripts/setup.sh",
+    "check": "bash scripts/check-updates.sh",
+    "apply": "bash scripts/apply-updates.sh",
+    "send": "node --env-file=.env src/send-discord.mjs"
+  },
+  "dependencies": {
+    "discord.js": "14.26.4"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  }
+}
