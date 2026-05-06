@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { readStdin } from './lib/read-stdin.ts';
 import { splitMessage } from './lib/split-message.ts';
 import { sendToChannel } from './lib/discord.ts';

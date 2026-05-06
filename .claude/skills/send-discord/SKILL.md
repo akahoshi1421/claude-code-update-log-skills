@@ -12,7 +12,7 @@ description: anthropics/claude-codeリポジトリのCHANGELOG.mdに加えられ
 - `claude-code/` がclone済みであること(なければ `bash scripts/setup.sh`)。
 - `node_modules/` が存在すること(なければ `npm install`)。
 
-> 注: `.env` の中身を読んだり存在確認をしないこと。Discord送信に必要な環境変数(`TOKEN` / `CHANNEL_ID`)は `node --env-file=.env` 側で読み込まれる。読み込みに失敗した場合は手順3で送信スクリプトがエラーを返すので、その時点でユーザに通知すれば良い。
+> 注: `.env` の中身を読んだり存在確認をしないこと。Discord送信に必要な環境変数(`TOKEN` / `CHANNEL_ID`)はsend-discord.ts内のdotenvが`.env`から自動読み込みする。読み込みに失敗した場合は手順3で送信スクリプトがエラーを返すので、その時点でユーザに通知すれば良い。
 
 ## 手順
 
@@ -29,8 +29,8 @@ description: anthropics/claude-codeリポジトリのCHANGELOG.mdに加えられ
    - Discordに投稿する想定なので、絵文字や見出しは控えめにし、長すぎないように要点を絞る。
 
 3. **Discord送信**
-   - 生成した要約を引数として `node --env-file=.env src/send-discord.ts "<要約>"` を実行する。
-   - 要約に改行や引用符が含まれる場合は適切にエスケープすること。長文や特殊文字を含む場合は `printf '%s' "$SUMMARY" | node --env-file=.env src/send-discord.ts` のようにstdin経由で渡してもよい(send-discord.ts は argv が無ければ stdin を読む)。
+   - 生成した要約を引数として `node src/send-discord.ts "<要約>"` を実行する。
+   - 要約に改行や引用符が含まれる場合は適切にエスケープすること。長文や特殊文字を含む場合は `printf '%s' "$SUMMARY" | node src/send-discord.ts` のようにstdin経由で渡してもよい(send-discord.ts は argv が無ければ stdin を読む)。
    - 送信後、`[send-discord] 送信完了` のログが出ることを確認する。
    - スクリプトが `TOKEN または CHANNEL_ID が環境変数に設定されていません` 等のエラーで終了した場合は、`.env` を直接読みに行かず、ユーザに対して「`.env` が無いか必要な環境変数 (`TOKEN` / `CHANNEL_ID`) が設定されていない」旨を伝えてskillを終了する。
 

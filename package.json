@@ -8,11 +8,12 @@
     "setup": "bash scripts/setup.sh",
     "check": "bash scripts/check-updates.sh",
     "apply": "bash scripts/apply-updates.sh",
-    "send": "node --env-file=.env src/send-discord.ts",
+    "send": "node src/send-discord.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "discord.js": "14.26.4"
+    "discord.js": "14.26.4",
+    "dotenv": "^17.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
