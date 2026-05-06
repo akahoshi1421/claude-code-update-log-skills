@@ -1,3 +1,10 @@
+/**
+ * 標準入力をUTF-8テキストとして終端まで読み取りPromiseで返す。
+ * パイプやリダイレクトで多バイト入力が来る前提のため、
+ * `data` イベントごとに配列へpushして最後に結合する(let未使用)。
+ *
+ * @returns stdinから受け取った文字列(末尾の改行は保持)
+ */
 export const readStdin = (): Promise<string> =>
   new Promise((resolve, reject) => {
     const chunks: string[] = [];

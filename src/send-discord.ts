@@ -3,6 +3,16 @@ import { readStdin } from './lib/read-stdin.ts';
 import { splitMessage } from './lib/split-message.ts';
 import { sendToChannel } from './lib/discord.ts';
 
+/**
+ * エントリポイント。
+ * argv(`process.argv[2]`)があればそれを、無ければstdinをメッセージ本文として扱い、
+ * `.env` から読み込んだ `TOKEN` / `CHANNEL_ID` でDiscordチャンネルへ送信する。
+ *
+ * 失敗時の終了コード:
+ * - 1: 入力メッセージが空
+ * - 1: `TOKEN` / `CHANNEL_ID` 未設定
+ * - 1: 送信処理で例外発生(下部のcatchで補足)
+ */
 const main = async (): Promise<void> => {
   const argMessage = process.argv[2];
   const raw = argMessage ?? (await readStdin());
