@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash scripts/setup.sh)",
+      "Bash(bash scripts/check-updates.sh)",
+      "Bash(bash scripts/apply-updates.sh)",
+      "Bash(node --env-file=.env src/send-discord.ts)",
+      "Bash(node --env-file=.env src/send-discord.ts *)",
+      "Bash(printf *)"
+    ]
+  }
+}
