@@ -6,11 +6,11 @@ https://github.com/anthropics/claude-code の`CHANGELOG.md`のgitの履歴を追
 
 ## 導入方法
 
-1. この`README.md`ファイルがあるディレクトリ上で https://github.com/anthropics/claude-code をcloneします。
-2. `npm i`をします。
-3. .envを作成します。
-4. 作成した.envに`TOKEN`にDiscordのAPI_TOKEN、`CHANNEL_ID`に通知したいDiscordのチャンネルIDを書きます。
-5. cron等を設定し、Raspberry PiやAWS Lambda等で定期実行させてください。
+1. リポジトリをclone
+1. セットアップスクリプトを実行 `bash scripts/setup.sh`
+1. `.env`ファイルをリポジトリ直下に作成
+1. 作成した`.env`に`TOKEN`にDiscordのAPI_TOKEN、`CHANNEL_ID`に通知したいDiscordのチャンネルIDを記載
+1. cron等を設定し、Raspberry PiやAWS Lambda等で定期実行 `claude -p "/send-discord"`
 
 ## コマンド一覧
 
