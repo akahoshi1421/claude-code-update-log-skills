@@ -16,7 +16,7 @@ https://github.com/anthropics/claude-code の`CHANGELOG.md`のgitの履歴を追
 
 ### /get-change-log
 
-変更のlogを追えます。コマンドを叩くと、`git pull origin main`が実行されます。
+変更のlogを追えます。コマンドを叩くと、gitの前回から差分がないかを取得します。
 その後、新しいcommitが存在し、前回との差分があった際、追加分のcommit logを元にどのような変更があったかを要約します。
 
 ### /send-discord
